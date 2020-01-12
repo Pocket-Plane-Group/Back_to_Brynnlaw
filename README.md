@@ -1,4 +1,4 @@
-# Back_to_Brynnlaw
+# Back to Brynnlaw
 A Questmod for Baldur's Gate II (BGII, BGT, BGII:EE, EET)
 
 Back to Brynnlaw MOD for Baldur's Gate II is an add-on for the game Baldur's Gate II, with or without the Throne of Bhaal expansion pack. The mod takes place in Chapter 6, when a messenger finds you next to the Adventurer's Mart.
