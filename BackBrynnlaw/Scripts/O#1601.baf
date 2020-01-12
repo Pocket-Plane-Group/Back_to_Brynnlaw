@@ -1,0 +1,18 @@
+// Pirate Lord's house
+IF
+Global("O#BrynnQuestSpawn1601","GLOBAL",0)
+GlobalGT("O#BrynnQuest","GLOBAL",13)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#DORAB2",[658.550],0)
+CreateCreature("O#DORAB6",[615.530],0)
+CreateCreature("O#DORAB7",[716.544],0)
+CreateCreature("O#DORA10",[644.751],12)
+GiveItemCreate("SCRL07","O#DORAB2",1,0,0)
+GiveItemCreate("scrl7k","O#DORA10",1,0,0)
+SetGlobal("O#BrynnQuestSpawn1601","GLOBAL",1)
+END
+
+
+

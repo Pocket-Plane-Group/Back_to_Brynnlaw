@@ -1,0 +1,11 @@
+// Brynnlaw's temple
+IF
+Global("O#BrynnQuestSpawn1604","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+SetGlobal("O#BrynnQuestSpawn1604","GLOBAL",1)
+END
+
+
+

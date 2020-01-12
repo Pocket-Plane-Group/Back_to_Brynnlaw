@@ -1,0 +1,14 @@
+IF
+OR(6)
+Range(Player1,15)
+Range(Player2,15)
+Range(Player3,15)
+Range(Player4,15)
+Range(Player5,15)
+Range(Player6,15)
+Global("init1","LOCALS",0)
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@10065)
+SetGlobal("init1","LOCALS",1)
+END

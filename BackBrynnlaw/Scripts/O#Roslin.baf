@@ -1,0 +1,44 @@
+IF
+Global("O#BrynnQuest","GLOBAL",13)
+OR(6)
+Range(Player1,25)
+Range(Player2,25)
+Range(Player3,25)
+Range(Player4,25)
+Range(Player5,25)
+Range(Player6,25)
+InMyArea(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+IF
+OR(2)
+Global("O#RoslinSpeaks","GLOBAL",1)
+Global("O#BrynnQuest","GLOBAL",25)
+OR(6)
+See(Player1)
+See(Player2)
+See(Player3)
+See(Player4)
+See(Player5)
+See(Player6)
+InMyArea(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END
+
+IF
+AttackedBy([GOODCUTOFF],DEFAULT)
+Global("O#BrynnQuestAttacked","GLOBAL",0)
+THEN
+RESPONSE #100
+SetGlobal("O#BrynnQuestAttacked","GLOBAL",1)
+ApplySpell(Myself,DRYAD_TELEPORT)
+END

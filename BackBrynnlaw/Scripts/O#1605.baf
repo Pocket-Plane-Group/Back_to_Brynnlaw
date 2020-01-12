@@ -1,0 +1,14 @@
+// Perth's former home
+IF
+Global("O#BrynnQuestSpawn1605","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#BryCW1",[490.346],14)
+CreateCreature("O#BryCW2",[340.349],12)
+CreateCreature("O#BryCW3",[431.247],13)
+GiveItemCreate("scrl9e","O#BryCW1",1,0,0)
+GiveItemCreate("scrl8f","O#BryCW2",1,0,0)
+SetGlobal("O#BrynnQuestSpawn1605","GLOBAL",1)
+END
+

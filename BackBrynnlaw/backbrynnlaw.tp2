@@ -1,0 +1,1190 @@
+BACKUP ~BackBrynnlaw/Backup~
+AUTHOR ~http://forums.pocketplane.net~
+VERSION ~v7~ 
+
+README ~BackBrynnlaw/%LANGUAGE%/Readme-BackBrynnlaw.txt~ ~BackBrynnlaw/Readme-BackBrynnlaw.txt~ 
+
+ALWAYS
+  
+  ACTION_IF NOT VARIABLE_IS_SET bg2_chapter BEGIN
+    
+    ACTION_IF GAME_IS ~eet~ BEGIN
+      
+      OUTER_SET bg2_chapter = 12
+    
+    END ELSE BEGIN
+      
+      OUTER_SET bg2_chapter = 0
+    
+    END
+    
+    OUTER_FOR (i=1; i<=10; i=i+1) BEGIN
+      
+      OUTER_SET bg2_chapter = bg2_chapter + 1
+      
+      OUTER_SPRINT name_source ~bg2_chapter_%i%~
+      
+      OUTER_SET EVAL ~%name_source%~ = bg2_chapter
+    
+    END
+  
+  END
+
+  // Borrowed from Edwin Romance: convert strings to UTF-8 for BGEE/BG2EE
+  //(not needed any more)
+  //INCLUDE ~%MOD_FOLDER%/handle_charsets.tpa~
+
+  // No exception, everything needs to be converted
+  ACTION_DEFINE_ARRAY O#noconvert BEGIN END
+
+  // Only setup-Mod.tra needs to be reloaded
+  ACTION_DEFINE_ARRAY O#reload BEGIN Setup-BackBrynnlaw END
+
+  // There is no "language" folder so the root of all languages in %MOD_FOLDER%
+  LAF HANDLE_CHARSETS
+    INT_VAR
+      infer_charsets = 1
+    STR_VAR
+      tra_path = EVAL ~%MOD_FOLDER%~
+      // charset_table = O#charsets // Included for illustrative purposes.
+      noconvert_array = O#noconvert
+      reload_array = O#reload
+  END
+END
+
+AUTO_TRA ~BackBrynnlaw/%s~
+
+LANGUAGE ~English~ ~English~ ~BackBrynnlaw/English/Setup-BackBrynnlaw.tra~
+LANGUAGE ~Russian~ ~Russian~ ~BackBrynnlaw/Russian/Setup-BackBrynnlaw.tra~
+LANGUAGE ~Deutsch~ ~Deutsch~ ~BackBrynnlaw/Deutsch/Setup-BackBrynnlaw.tra~
+LANGUAGE ~Chinese~ ~Schinese~ ~BackBrynnlaw/Schinese/Setup-BackBrynnlaw.tra~
+
+BEGIN @0
+
+ACTION_IF GAME_IS ~BG2EE eet~ BEGIN
+LOAD_TRA ~BackBrynnlaw/%LANGUAGE%/Setup-BackBrynnlaw-EE.tra~
+ADD_JOURNAL @10012 @10013 @10014 @10015 @10016 @10017 @10018 @10019 @10020 @10021 @10022 @10023 @10024 @10025 @10026 @10027 @10028 @10029 @10030 @10031 @10032 @10033 @10034 @10035 @10036 @10037 @10038 @10039 @10040 @10041 @10042 @10086 @10087 @10088 @10089
+END
+
+// CamDawg's custom state
+APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
+UNLESS ~CD_STATE_NOTVALID~
+
+// Dialogue and scripts
+
+COMPILE ~BackBrynnlaw/Dialogue/Brynnlaw.d~
+
+        ~BackBrynnlaw/Scripts/O#1500.baf~
+        ~BackBrynnlaw/Scripts/O#1515.baf~
+        ~BackBrynnlaw/Scripts/O#1516.baf~
+        ~BackBrynnlaw/Scripts/O#1600.baf~
+        ~BackBrynnlaw/Scripts/O#1601.baf~
+        ~BackBrynnlaw/Scripts/O#1602.baf~
+        ~BackBrynnlaw/Scripts/O#1603.baf~
+        ~BackBrynnlaw/Scripts/O#1604.baf~
+        ~BackBrynnlaw/Scripts/O#1605.baf~
+        ~BackBrynnlaw/Scripts/O#1606.baf~
+        ~BackBrynnlaw/Scripts/O#1608.baf~
+        ~BackBrynnlaw/Scripts/O#1610.baf~
+        ~BackBrynnlaw/Scripts/O#1611.baf~
+
+	~BackBrynnlaw/Scripts/O#Bryn1.baf~
+	~BackBrynnlaw/Scripts/O#Bryn2.baf~
+	~BackBrynnlaw/Scripts/O#Bryn3.baf~
+	~BackBrynnlaw/Scripts/O#Bryn4.baf~
+	~BackBrynnlaw/Scripts/O#Bryn5.baf~
+	~BackBrynnlaw/Scripts/O#Bryn6.baf~
+	~BackBrynnlaw/Scripts/O#Bryn7.baf~
+	~BackBrynnlaw/Scripts/O#Bryn8.baf~
+	~BackBrynnlaw/Scripts/O#Bryn9.baf~
+
+        ~BackBrynnlaw/Scripts/O#BrynFi.baf~
+        ~BackBrynnlaw/Scripts/O#BrynRu.baf~
+        ~BackBrynnlaw/Scripts/O#Woll.baf~
+        ~BackBrynnlaw/Scripts/O#Myst.baf~
+        ~BackBrynnlaw/Scripts/O#Roslin.baf~
+        ~BackBrynnlaw/Scripts/O#Berlin.baf~
+        ~BackBrynnlaw/Scripts/O#Dora.baf~
+        ~BackBrynnlaw/Scripts/O#DoraB1.baf~
+        ~BackBrynnlaw/Scripts/O#DoraB2.baf~
+        ~BackBrynnlaw/Scripts/O#DoraB3.baf~
+        ~BackBrynnlaw/Scripts/O#WIZAT1.baf~
+        ~BackBrynnlaw/Scripts/O#WIZSLA.baf~
+        ~BackBrynnlaw/Scripts/O#BryCW1.baf~
+        ~BackBrynnlaw/Scripts/O#WIZSPE.baf~
+        ~BackBrynnlaw/Scripts/O#Goni.baf~
+        ~BackBrynnlaw/Scripts/O#Alia.baf~
+        ~BackBrynnlaw/Scripts/O#Kvas.baf~
+        ~BackBrynnlaw/Scripts/O#Revin.baf~
+        ~BackBrynnlaw/Scripts/O#WOLLFM.baf~
+	~BackBrynnlaw/Scripts/O#GHOSTG.baf~
+	~BackBrynnlaw/Scripts/O#GHOST.baf~
+        ~BackBrynnlaw/Scripts/O#Galven.baf~
+	~BackBrynnlaw/Scripts/O#BRCOW2.baf~
+        ~BackBrynnlaw/Scripts/O#BrynT2.baf~
+        ~BackBrynnlaw/Scripts/O#BrynT4.baf~
+        ~BackBrynnlaw/Scripts/O#BrynT5.baf~
+        ~BackBrynnlaw/Scripts/O#BrynT7.baf~
+        ~BackBrynnlaw/Scripts/O#BrynT9.baf~
+        ~BackBrynnlaw/Scripts/O#Bryn11.baf~
+
+EXTEND_TOP ~AR0700.bcs~ ~BackBrynnlaw/Scripts/AR0700.baf~ EVALUATE_BUFFER
+EXTEND_TOP ~AR0318.bcs~ ~BackBrynnlaw/Scripts/AR0318.baf~
+EXTEND_TOP ~AR0300.bcs~ ~BackBrynnlaw/Scripts/AR0300.baf~
+EXTEND_TOP ~AR0500.bcs~ ~BackBrynnlaw/Scripts/AR0500.baf~
+
+EXTEND_TOP ~Imoen2.bcs~ ~BackBrynnlaw/Scripts/Imoen2.baf~
+
+// Areas
+
+COPY ~BackBrynnlaw/Areas~ ~override~
+
+// Characters
+
+COPY ~BackBrynnlaw/Characters/O#Myst.cre~ ~override/O#Myst.cre~
+WRITE_ASCII 0x248 ~O#Myst~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Myst~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Myst~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+SAY NAME1 @63
+SAY NAME2 @63
+
+COPY ~BackBrynnlaw/Characters/O#Myst.cre~ ~override/O#Irene.cre~
+WRITE_ASCII 0x248 ~O#Myst~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Irene~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Irene~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+SAY NAME1 @67
+SAY NAME2 @67
+
+COPY_EXISTING ~SUELFW10.cre~ ~override/O#Forel.cre~
+WRITE_ASCII 0x248 ~O#Myst~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Forel~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Forel~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x2d 46 		 // Minor color
+WRITE_BYTE 0x2e 85 		 // Major color
+SAY NAME1 @68
+SAY NAME2 @68
+
+COPY ~BackBrynnlaw/Characters/O#Roslin.cre~ ~override/O#Roslin.cre~
+WRITE_ASCII 0x248 ~O#Roslin~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Roslin~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Roslin~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+SAY NAME1 @1
+SAY NAME2 @1
+
+COPY_EXISTING ~Mook.cre~ ~override/O#Dora.cre~
+WRITE_ASCII 0x248 ~O#Dora~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Dora~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Dora~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x2d 45 		 // Minor color
+WRITE_BYTE 0x2e 44 		 // Major color
+SAY NAME1 @2
+SAY NAME2 @2
+
+COPY_EXISTING ~PPGUARD.cre~ ~override/O#Jeremy.cre~
+WRITE_ASCII 0x248 ~O#Jeremy~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Jeremy~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Jeremy~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x2e 46 		 // Major color
+SAY NAME1 @3
+SAY NAME2 @3
+
+COPY_EXISTING ~MGTEOS01.cre~ ~override/O#Berlin.cre~
+WRITE_ASCII 0x248 ~O#Berlin~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Berlin~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Berlin~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x2d 58 		 // Minor color
+WRITE_BYTE 0x2e 57 		 // Major color
+SAY NAME1 @4
+SAY NAME2 @4
+
+COPY_EXISTING ~MGTEOS01.cre~ ~override/O#Berli1.cre~
+WRITE_ASCII 0x248 ~O#Berlin~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Berlin~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Berli1~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x2d 58 		 // Minor color
+WRITE_BYTE 0x2e 57 		 // Major color
+SAY NAME1 @4
+SAY NAME2 @4
+
+COPY_EXISTING ~gerhardt.cre~ ~override/O#Goni.cre~
+WRITE_ASCII 0x248 ~O#Goni~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Goni~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Goni~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 63 		 // Minor color
+WRITE_BYTE 0x2e 64 		 // Major color
+SAY NAME1 @5
+SAY NAME2 @5
+
+COPY_EXISTING ~MAGE16A.cre~ ~override/O#Alia.cre~
+WRITE_ASCII 0x248 ~O#Alia~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Alia~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Alia~   #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 57 		 // Minor color
+WRITE_BYTE 0x2e 54 		 // Major color
+SAY NAME1 @6
+SAY NAME2 @6
+
+COPY_EXISTING ~trfued05.cre~ ~override/O#Revin.cre~
+WRITE_ASCII 0x248 ~O#Revin~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Revin~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Revin~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 51 		 // Minor color
+WRITE_BYTE 0x2e 50 		 // Major color
+SAY NAME1 @7
+SAY NAME2 @7
+
+COPY_EXISTING ~ESCORT3.cre~ ~override/O#Kvas.cre~
+WRITE_ASCII 0x248 ~O#Kvas~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Kvas~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Kvas~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 46 		 // Minor color
+WRITE_BYTE 0x2e 48 		 // Major color
+SAY NAME1 @8
+SAY NAME2 @8
+
+COPY_EXISTING ~PPGUARD.cre~ ~override/O#Woll.cre~
+WRITE_ASCII 0x248 ~O#Woll~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Woll~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Woll~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8  // default script
+SAY NAME1 @9
+SAY NAME2 @9
+
+COPY_EXISTING ~TRHMER01.cre~ ~override/O#Slava.cre~
+WRITE_ASCII 0x248 ~O#Slava~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Slava~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Slava~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 58 		 // Minor color
+WRITE_BYTE 0x2e 57 		 // Major color
+SAY NAME1 @10
+SAY NAME2 @10
+
+COPY_EXISTING ~ESCORT3.cre~ ~override/O#Yasen.cre~
+WRITE_ASCII 0x248 ~O#Yasen~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Yasen~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Yasen~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 58 		 // Minor color
+WRITE_BYTE 0x2e 57 		 // Major color
+SAY NAME1 @11
+SAY NAME2 @11
+
+COPY_EXISTING ~cowenf2.cre~ ~override/O#WIZATH.cre~
+WRITE_ASCII 0x248 ~O#BRCOW2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZATH~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZATH~ #32 // death variable
+WRITE_ASCII 0x250 ~~	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 53 		 // Minor color
+WRITE_BYTE 0x2e 54 		 // Major color
+WRITE_LONG 0x14 4000		 // XP value
+
+COPY_EXISTING ~cowenf3.cre~ ~override/O#WIZAT1.cre~
+WRITE_ASCII 0x248 ~O#WIZAT1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZAT1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZAT1~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 46 		 // Minor color
+WRITE_BYTE 0x2e 47 		 // Major color
+
+COPY_EXISTING ~cowenf4.cre~ ~override/O#WIZAT2.cre~
+WRITE_ASCII 0x248 ~O#WIZAT2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZAT2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZAT2~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 59 		 // Minor color
+WRITE_BYTE 0x2e 60 		 // Major color
+
+COPY_EXISTING ~cowenf1.cre~ ~override/O#BerlG1.cre~
+WRITE_ASCII 0x248 ~O#BerlG1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BerlG1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BerlG1~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~cowenf3.cre~ ~override/O#BerlG2.cre~
+WRITE_ASCII 0x248 ~O#BerlG2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BerlG2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BerlG2~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~cowenf4.cre~ ~override/O#BerlG3.cre~
+WRITE_ASCII 0x248 ~O#BerlG3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BerlG3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BerlG3~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~cowenf2.cre~ ~override/O#BryCW1.cre~
+WRITE_ASCII 0x248 ~O#BryCW1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BryCW1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BryCW1~ #32 // death variable
+WRITE_ASCII 0x250 ~~	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 48 		 // Minor color
+WRITE_BYTE 0x2e 49 		 // Major color
+WRITE_LONG 0x14 4000		 // XP value
+
+COPY_EXISTING ~cowenf4.cre~ ~override/O#BryCW2.cre~
+WRITE_ASCII 0x248 ~O#BryCW2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BryCW2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BryCW2~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 44 		 // Minor color
+WRITE_BYTE 0x2e 45 		 // Major color
+
+COPY_EXISTING ~cowenf1.cre~ ~override/O#BryCW3.cre~
+WRITE_ASCII 0x248 ~O#BryCW3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BryCW3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BryCW3~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 46 		 // Minor color
+WRITE_BYTE 0x2e 47 		 // Major color
+
+COPY_EXISTING ~cowenf2.cre~ ~override/O#WIZSPE.cre~
+WRITE_ASCII 0x248 ~O#WIZSPE~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSPE~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSPE~ #32 // death variable
+WRITE_ASCII 0x250 ~~	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 52 		 // Minor color
+WRITE_BYTE 0x2e 55 		 // Major color
+WRITE_LONG 0x14 4000		 // XP value
+
+COPY_EXISTING ~cowenf3.cre~ ~override/O#WIZSP1.cre~
+WRITE_ASCII 0x248 ~O#WIZSP1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSP1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSP1~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~cowenf1.cre~ ~override/O#WIZSP2.cre~
+WRITE_ASCII 0x248 ~O#WIZSP2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSP2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSP2~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 33 		 // Minor color
+WRITE_BYTE 0x2e 19 		 // Major color
+
+COPY_EXISTING ~MAGE16C.cre~ ~override/O#WIZSP3.cre~
+WRITE_ASCII 0x248 ~O#WIZSP3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSP3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSP3~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 51 		 // Minor color
+WRITE_BYTE 0x2e 50 		 // Major color
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~MAGE18A.cre~ ~override/O#WIZSP4.cre~
+WRITE_ASCII 0x248 ~O#WIZSP4~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSP4~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSP4~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 48 		 // Minor color
+WRITE_BYTE 0x2e 67 		 // Major color
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~MAGE16B.cre~ ~override/O#WIZSP5.cre~
+WRITE_ASCII 0x248 ~O#WIZSP5~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSP5~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSP5~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x2d 37 		 // Minor color
+WRITE_BYTE 0x2e 36 		 // Major color
+WRITE_BYTE 0x0270 128		 // Neutral
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~cowenf2.cre~ ~override/O#WIZSLA.cre~
+WRITE_ASCII 0x248 ~O#WIZSLA~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSLA~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSLA~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_BYTE 0x2d 47 		 // Minor color
+WRITE_BYTE 0x2e 46 		 // Major color
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_LONG 0x14 4000		 // XP value
+
+COPY_EXISTING ~cowenf3.cre~ ~override/O#WIZSL1.cre~
+WRITE_ASCII 0x248 ~O#WIZSL1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSL1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSL1~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~cowenf4.cre~ ~override/O#WIZSL2.cre~
+WRITE_ASCII 0x248 ~O#WIZSL2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZSL2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZSL2~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+WRITE_BYTE 0x2d 66 		 // Minor color
+WRITE_BYTE 0x2e 65 		 // Major color
+
+COPY_EXISTING ~GOLCLA01.cre~ ~override/O#WIZGO1.cre~
+WRITE_ASCII 0x248 ~O#WIZGO1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZGO1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZGO1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~GOLCLA01.cre~ ~override/O#WIZGO2.cre~
+WRITE_ASCII 0x248 ~O#WIZGO2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WIZGO2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WIZGO2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~TERMER01.cre~ ~override/O#DORAB1.cre~
+WRITE_ASCII 0x248 ~O#DORAB1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER02.cre~ ~override/O#DORAB2.cre~
+WRITE_ASCII 0x248 ~O#DORAB2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER04.cre~ ~override/O#DORAB3.cre~
+WRITE_ASCII 0x248 ~O#DORAB3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER01.cre~ ~override/O#DORAB4.cre~
+WRITE_ASCII 0x248 ~O#DORAB4~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB4~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER02.cre~ ~override/O#DORAB5.cre~
+WRITE_ASCII 0x248 ~O#DORAB5~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB5~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB5~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER03.cre~ ~override/O#DORAB6.cre~
+WRITE_ASCII 0x248 ~O#DORAB6~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB6~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB6~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER03.cre~ ~override/O#DORAB7.cre~
+WRITE_ASCII 0x248 ~O#DORAB7~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB7~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB7~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER01.cre~ ~override/O#DORAB8.cre~
+WRITE_ASCII 0x248 ~O#DORAB8~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB8~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB8~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~TERMER02.cre~ ~override/O#DORAB9.cre~
+WRITE_ASCII 0x248 ~O#DORAB9~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORAB9~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORAB9~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~MAGE16B.cre~ ~override/O#DORA10.cre~
+WRITE_ASCII 0x248 ~O#DORA10~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORA10~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORA10~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 46 		 // Minor color
+WRITE_BYTE 0x2e 47 		 // Major color
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~MAGE16C.cre~ ~override/O#DORA11.cre~
+WRITE_ASCII 0x248 ~O#DORA11~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORA11~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORA11~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 36 		 // Minor color
+WRITE_BYTE 0x2e 37 		 // Major color
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~MAGE16C.cre~ ~override/O#DORA12.cre~
+WRITE_ASCII 0x248 ~O#DORA12~ #8	 // override
+WRITE_ASCII 0x2cc ~O#DORA12~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#DORA12~ #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+WRITE_BYTE 0x2d 54 		 // Minor color
+WRITE_BYTE 0x2e 55 		 // Major color
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~HLSION.cre~ ~override/O#Sion.cre~
+WRITE_ASCII 0x248 ~O#Sion~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Sion~   #8  // dialogue
+WRITE_ASCII 0x280 ~O#Sion~   #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#Myst~   #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~HLKETTA2.cre~ ~override/O#Ketta.cre~
+WRITE_ASCII 0x248 ~O#Ketta~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Ketta~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Ketta~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#Myst~   #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~BPROST1.cre~ ~override/O#GoniW1.cre~
+WRITE_ASCII 0x248 ~O#GoniW1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#GoniW1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#GoniW1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+
+COPY_EXISTING ~BPROST2.cre~ ~override/O#GoniW2.cre~
+WRITE_ASCII 0x248 ~O#GoniW2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#GoniW2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#GoniW2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+
+COPY_EXISTING ~PIRSEA01.cre~ ~override/O#GoniCa.cre~
+WRITE_ASCII 0x248 ~O#GoniCa~ #8	 // override
+WRITE_ASCII 0x2cc ~O#GoniCa~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#GoniCa~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+SAY NAME1 @70
+SAY NAME2 @70
+
+COPY_EXISTING ~C6GOFUS.cre~ ~override/O#RevinS.cre~
+WRITE_ASCII 0x248 ~O#RevinS~ #8	 // override
+WRITE_ASCII 0x2cc ~O#RevinS~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#RevinS~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+SAY NAME1 @65
+SAY NAME2 @65
+
+COPY_EXISTING ~SGUARD2.cre~ ~override/O#ReviS1.cre~
+WRITE_ASCII 0x248 ~O#ReviS1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#ReviS1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#ReviS1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~SGUARD3.cre~ ~override/O#ReviS2.cre~
+WRITE_ASCII 0x248 ~O#ReviS2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#ReviS2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#ReviS2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~SGUARD2.cre~ ~override/O#ReviS3.cre~
+WRITE_ASCII 0x248 ~O#ReviS3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#ReviS3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#ReviS3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~SGUARD3.cre~ ~override/O#ReviS4.cre~
+WRITE_ASCII 0x248 ~O#ReviS4~ #8	 // override
+WRITE_ASCII 0x2cc ~O#ReviS4~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#ReviS4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~BPROST2.cre~ ~override/O#KvasW1.cre~
+WRITE_ASCII 0x248 ~O#KvasW1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 71 		 // Minor color
+WRITE_BYTE 0x2e 82 		 // Major color
+
+COPY_EXISTING ~BPROST1.cre~ ~override/O#KvasW2.cre~
+WRITE_ASCII 0x248 ~O#KvasW2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 17 		 // Minor color
+WRITE_BYTE 0x2e 47 		 // Major color
+
+COPY_EXISTING ~BPROST1.cre~ ~override/O#KvasW3.cre~
+WRITE_ASCII 0x248 ~O#KvasW3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 59 		 // Minor color
+WRITE_BYTE 0x2e 44 		 // Major color
+
+COPY_EXISTING ~BPROST2.cre~ ~override/O#KvasW4.cre~
+WRITE_ASCII 0x248 ~O#KvasW4~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 31 		 // Minor color
+WRITE_BYTE 0x2e 48 		 // Major color
+
+COPY_EXISTING ~BPROST1.cre~ ~override/O#KvasW5.cre~
+WRITE_ASCII 0x248 ~O#KvasW5~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW5~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 54		 // Minor color
+WRITE_BYTE 0x2e 36 		 // Major color
+
+COPY_EXISTING ~BPROST2.cre~ ~override/O#KvasW6.cre~
+WRITE_ASCII 0x248 ~O#KvasW6~ #8	 // override
+WRITE_ASCII 0x2cc ~O#KvasW~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#KvasW6~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 40 		 // Minor color
+WRITE_BYTE 0x2e 46 		 // Major color
+
+COPY_EXISTING ~PIRSAL01.cre~ ~override/O#Pirat1.cre~
+WRITE_ASCII 0x248 ~O#Woll~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Pirat1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Pirat1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+
+COPY_EXISTING ~PIRSAL01.cre~ ~override/O#Pirat2.cre~
+WRITE_ASCII 0x248 ~O#Woll~   #8	 // override
+WRITE_ASCII 0x2cc ~O#Pirat2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Pirat2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+
+COPY_EXISTING ~ppldr01.cre~ ~override/O#WollFM.cre~
+WRITE_ASCII 0x248 ~O#WollFM~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WollFM~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WollFM~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~pirsea02.cre~ ~override/O#WollF1.cre~
+WRITE_ASCII 0x248 ~O#WollF1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WollF1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WollF1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~pirsea02.cre~ ~override/O#WollF2.cre~
+WRITE_ASCII 0x248 ~O#WollF2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WollF2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WollF2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~pirsea02.cre~ ~override/O#WollF3.cre~
+WRITE_ASCII 0x248 ~O#WollF3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#WollF3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#WollF3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+WRITE_BYTE 0x0270 255		 // Enemy
+
+COPY_EXISTING ~beggar1.cre~ ~override/O#GhostG.cre~
+WRITE_ASCII 0x248 ~O#GhostG~ #8	 // override
+WRITE_ASCII 0x2cc ~O#GhostG~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#GhostG~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+SAY NAME1 @69
+SAY NAME2 @69
+
+COPY_EXISTING ~wellyn.cre~ ~override/O#Ghost.cre~
+WRITE_ASCII 0x248 ~O#Ghost~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Ghost~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Ghost~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+SAY NAME1 @66
+SAY NAME2 @66
+
+COPY_EXISTING ~pirmur01.cre~ ~override/O#Galven.cre~
+WRITE_ASCII 0x248 ~O#Galven~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Galven~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Galven~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~MAGE18A.cre~ ~override/O#Galv1.cre~
+WRITE_ASCII 0x248 ~O#Galv1~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Galv1~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Galv1~  #32 // death variable
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~~	     #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+SAY NAME1 @64
+SAY NAME2 @64
+
+COPY_EXISTING ~mgketg02.cre~ ~override/O#Galv2.cre~
+WRITE_ASCII 0x248 ~O#Galv2~  #8	 // override
+WRITE_ASCII 0x2cc ~O#Galv2~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#Galv2~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynFi~ #8	 // default script
+
+COPY_EXISTING ~ppinn01.cre~ ~override/O#BrynB.cre~
+WRITE_ASCII 0x248 ~O#BrynB~  #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynB~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynB~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+
+COPY_EXISTING ~bmthief.cre~ ~override/O#BrynT.cre~
+WRITE_ASCII 0x248 ~O#BrynT~  #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT~  #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT~  #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+
+COPY_EXISTING ~DMTOWN1.cre~ ~override/O#BrynT1.cre~
+WRITE_ASCII 0x248 ~O#BrynT1~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT1~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 58		 // Minor color
+WRITE_BYTE 0x2e 57 		 // Major color
+
+COPY_EXISTING ~TERMER01.cre~ ~override/O#BrynT2.cre~
+WRITE_ASCII 0x248 ~O#BrynT2~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT2~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~BPROST1.cre~ ~override/O#BrynT3.cre~
+WRITE_ASCII 0x248 ~O#BrynT3~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT3~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 47		 // Minor color
+WRITE_BYTE 0x2e 46 		 // Major color
+
+COPY_EXISTING ~TERMER01.cre~ ~override/O#BrynT4.cre~
+WRITE_ASCII 0x248 ~O#BrynT4~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT4~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~TERMER03.cre~ ~override/O#BrynT5.cre~
+WRITE_ASCII 0x248 ~O#BrynT5~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT5~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT5~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~DMTOWN1.cre~ ~override/O#BrynT6.cre~
+WRITE_ASCII 0x248 ~O#BrynT6~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT6~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT6~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 51		 // Minor color
+WRITE_BYTE 0x2e 50 		 // Major color
+
+COPY_EXISTING ~TERMER02.cre~ ~override/O#BrynT7.cre~
+WRITE_ASCII 0x248 ~O#BrynT7~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT7~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT7~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x0270 128		 // Neutral
+
+COPY_EXISTING ~urchin1.cre~ ~override/O#BrynT8.cre~
+WRITE_ASCII 0x248 ~O#BrynT8~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT8~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT8~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 37		 // Minor color
+WRITE_BYTE 0x2e 23 		 // Major color
+
+COPY_EXISTING ~urchin2.cre~ ~override/O#BrynT9.cre~
+WRITE_ASCII 0x248 ~O#BrynT9~ #8	 // override
+WRITE_ASCII 0x2cc ~O#BrynT9~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#BrynT9~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 18		 // Minor color
+WRITE_BYTE 0x2e 46 		 // Major color
+
+COPY_EXISTING ~DFTOWN1.cre~ ~override/O#Bryn10.cre~
+WRITE_ASCII 0x248 ~O#Bryn10~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Bryn10~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Bryn10~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 49		 // Minor color
+WRITE_BYTE 0x2e 48 		 // Major color
+
+COPY_EXISTING ~DFTOWN1.cre~ ~override/O#Bryn11.cre~
+WRITE_ASCII 0x248 ~O#Bryn11~ #8	 // override
+WRITE_ASCII 0x2cc ~O#Bryn11~ #8  // dialogue
+WRITE_ASCII 0x280 ~O#Bryn11~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+WRITE_ASCII 0x268 ~O#BrynRu~ #8	 // default script
+WRITE_BYTE 0x2d 61		 // Minor color
+WRITE_BYTE 0x2e 44 		 // Major color
+
+COPY_EXISTING ~OBSFIR02.cre~ ~override/O#BrImp1.cre~
+WRITE_ASCII 0x280 ~O#BrImp1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR02.cre~ ~override/O#BrImp2.cre~
+WRITE_ASCII 0x280 ~O#BrImp2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR03.cre~ ~override/O#BrImp3.cre~
+WRITE_ASCII 0x280 ~O#BrImp3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR04.cre~ ~override/O#BrImp4.cre~
+WRITE_ASCII 0x280 ~O#BrImp4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR06.cre~ ~override/O#BrEle1.cre~
+WRITE_ASCII 0x280 ~O#BrEle1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR06.cre~ ~override/O#BrEle2.cre~
+WRITE_ASCII 0x280 ~O#BrEle2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR06.cre~ ~override/O#BrEle3.cre~
+WRITE_ASCII 0x280 ~O#BrEle3~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~OBSFIR06.cre~ ~override/O#BrEle4.cre~
+WRITE_ASCII 0x280 ~O#BrEle4~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~ICSALFIR.cre~ ~override/O#BrSal1.cre~
+WRITE_ASCII 0x280 ~O#BrSal1~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+COPY_EXISTING ~ICSALFIR.cre~ ~override/O#BrSal2.cre~
+WRITE_ASCII 0x280 ~O#BrSal2~ #32 // death variable
+WRITE_ASCII 0x250 ~~ 	     #8  // class script
+WRITE_ASCII 0x258 ~~ 	     #8  // race script
+WRITE_ASCII 0x260 ~~ 	     #8  // general script
+
+// Items
+
+COPY_EXISTING ~BOOK93.itm~ ~override/O#BRYNND.itm~
+SAY NAME1 @43
+SAY NAME2 @43
+SAY UNIDENTIFIED_DESC @44
+SAY DESC @44
+
+COPY_EXISTING ~MISC5Y.itm~ ~override/O#KVASN.itm~
+SAY NAME1 @45
+SAY NAME2 @45
+SAY UNIDENTIFIED_DESC @46
+SAY DESC @46
+
+COPY_EXISTING ~MISC8V.itm~ ~override/O#BRWARD.itm~
+SAY NAME1 @47
+SAY NAME2 @47
+SAY UNIDENTIFIED_DESC @48
+SAY DESC @48
+
+COPY ~BackBrynnlaw/Items/o#brbrac.bam~ ~override/o#brbrac.bam~
+COPY ~BackBrynnlaw/Items/o#brioun.bam~ ~override/o#brioun.bam~
+COPY ~BackBrynnlaw/Items/o#brboot.bam~ ~override/o#brboot.bam~
+COPY ~BackBrynnlaw/Items/o#brglov.bam~ ~override/o#brglov.bam~
+
+COPY ~BackBrynnlaw/Items/o#brbrac.itm~ ~override/o#brbrac.itm~
+SAY NAME2 @49
+SAY DESC @50
+
+COPY ~BackBrynnlaw/Items/o#brioun.itm~ ~override/o#brioun.itm~
+SAY NAME2 @51
+SAY DESC @52
+
+COPY ~BackBrynnlaw/Items/o#brboot.itm~ ~override/o#brboot.itm~
+SAY NAME2 @53
+SAY DESC @54
+
+COPY ~BackBrynnlaw/Items/o#brglov.itm~ ~override/o#brglov.itm~
+SAY NAME2 @55
+SAY DESC @56
+

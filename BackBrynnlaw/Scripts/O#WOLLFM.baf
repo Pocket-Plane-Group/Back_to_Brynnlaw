@@ -1,0 +1,15 @@
+IF
+OR(6)
+See(Player1)
+See(Player2)
+See(Player3)
+See(Player4)
+See(Player5)
+See(Player6)
+Global("init1","LOCALS",0)
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@10060)
+SetGlobal("init1","LOCALS",1)
+Enemy()
+END

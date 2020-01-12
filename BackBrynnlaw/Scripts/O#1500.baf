@@ -1,0 +1,51 @@
+// Spellhold
+IF
+Global("O#BrynnQuestSpawn1500","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#WIZSPE",[1025.2528],3)
+CreateCreature("O#WIZSP1",[1068.2470],3)
+CreateCreature("O#WIZSP2",[1089.2510],3)
+GiveItemCreate("scrl9a","O#WIZSP1",1,0,0)
+GiveItemCreate("scrl8r","O#WIZSPE",1,0,0)
+CreateCreature("O#WIZGO1",[1191.1415],14)
+CreateCreature("O#WIZGO2",[1178.1290],0)
+SetGlobal("O#BrynnQuestSpawn1500","GLOBAL",1)
+END
+
+IF
+Global("O#DoraSpeaks","GLOBAL",2)
+PartyHasItem("O#BrWard")
+THEN
+RESPONSE #100
+CreateCreature("O#Dora",[1559.1706],14)
+SetGlobal("O#DoraSpeaks","GLOBAL",3)
+END
+
+IF
+GlobalLT("O#DoraSpeaks","GLOBAL",4)
+GlobalGT("O#BrynnQuest","GLOBAL",21)
+THEN
+RESPONSE #100
+ActionOverride("O#Dora",DestroySelf())
+SetGlobal("O#DoraSpeaks","GLOBAL",4)
+END
+
+IF
+Global("O#RoslinSpeaks","GLOBAL",0)
+PartyHasItem("O#BrWard")
+THEN
+RESPONSE #100
+CreateCreature("O#Roslin",[700.1188],15)
+SetGlobal("O#RoslinSpeaks","GLOBAL",1)
+END
+
+IF
+GlobalLT("O#RoslinSpeaks","GLOBAL",2)
+GlobalGT("O#BrynnQuest","GLOBAL",21)
+THEN
+RESPONSE #100
+ActionOverride("O#Roslin",DestroySelf())
+SetGlobal("O#RoslinSpeaks","GLOBAL",2)
+END

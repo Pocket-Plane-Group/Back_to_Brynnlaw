@@ -1,0 +1,9 @@
+// Docks: the Warehouse
+IF
+Global("O#BrynnQuest","GLOBAL",2)
+THEN
+RESPONSE #100
+CreateCreature("O#ROSLIN",[533.581],2)
+SetGlobal("O#BrynnQuest","GLOBAL",3)
+Continue()
+END

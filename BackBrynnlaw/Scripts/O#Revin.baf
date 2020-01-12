@@ -1,0 +1,32 @@
+IF
+OR(6)
+See(Player1)
+See(Player2)
+See(Player3)
+See(Player4)
+See(Player5)
+See(Player6)
+Global("o#revinbrynninit1","GLOBAL",0)
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@10059)
+SetGlobal("o#revinbrynninit1","GLOBAL",1)
+END
+
+IF
+Global("O#BrynnRevin","GLOBAL",3)
+AreaCheck("O#1600")
+OR(6)
+Range(Player1,15)
+Range(Player2,15)
+Range(Player3,15)
+Range(Player4,15)
+Range(Player5,15)
+Range(Player6,15)
+InMyArea(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

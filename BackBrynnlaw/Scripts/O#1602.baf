@@ -1,0 +1,25 @@
+// Brynnlaw's Inn
+IF
+Global("O#BrynnQuestSpawn1602","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#BrynB",[561.314],2)
+CreateCreature("O#Alia",[675.377],5)
+CreateCreature("O#Revin",[291.653],14)
+CreateCreature("O#Kvas",[827.346],1)
+GiveItemCreate("scrl9v","O#Alia",1,0,0)
+GiveItemCreate("scrl7g","O#Alia",1,0,0)
+SetGlobal("O#BrynnQuestSpawn1602","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#BrynnQuest","GLOBAL",14)
+Global("O#BrynnQuestSpawn16022","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#Roslin",[743.573],4)
+SetGlobal("O#BrynnQuestSpawn16022","GLOBAL",1)
+END
+

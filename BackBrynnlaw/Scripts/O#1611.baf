@@ -1,0 +1,18 @@
+// Brynnlaw's brothel
+IF
+Global("O#BrynnQuestSpawn1611","GLOBAL",0)
+GlobalGT("O#BrynnQuest","GLOBAL",13)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#DORAB1",[540.338],0)
+CreateCreature("O#DORAB8",[542.432],12)
+CreateCreature("O#DORAB9",[685.255],0)
+CreateCreature("O#DORA12",[585.355],0)
+GiveItemCreate("RING03","O#DORAB1",1,0,0)
+GiveItemCreate("scrl7s","O#DORA12",1,0,0)
+SetGlobal("O#BrynnQuestSpawn1611","GLOBAL",1)
+END
+
+
+

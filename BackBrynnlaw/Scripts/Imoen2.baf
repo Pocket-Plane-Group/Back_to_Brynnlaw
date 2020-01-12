@@ -1,0 +1,60 @@
+// Back to Brynnlaw, Imoen's script
+IF
+InParty(Myself)
+AreaCheck("O#1600")
+GlobalGT("O#BrynnQuest","GLOBAL",13)
+Global("O#BrynnImoen","GLOBAL",0)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("O#BrynnImoen","GLOBAL",2)
+END
+
+IF
+InParty(Myself)
+AreaCheck("O#1515")
+Dead("O#Berlin")
+Global("O#BrynnImoen","GLOBAL",3)
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("O#BrynnImoen","GLOBAL",4)
+END
+
+IF
+InParty(Myself)
+GlobalGT("O#BrynnQuest","GLOBAL",30)
+Global("O#BrynnImoen","GLOBAL",5)
+!See("O#Roslin")
+!See("O#Dora")
+See(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+CombatCounter(0)
+!See([ENEMY])
+THEN
+RESPONSE #100
+SetGlobal("O#BrynnImoen","GLOBAL",6)
+END
+
+IF
+InParty(Myself)
+OR(3)
+Global("O#BrynnImoen","GLOBAL",2)
+Global("O#BrynnImoen","GLOBAL",4)
+Global("O#BrynnImoen","GLOBAL",6)
+!StateCheck(Player1,CD_STATE_NOTVALID)
+!StateCheck(Myself,CD_STATE_NOTVALID)
+See(Player1)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

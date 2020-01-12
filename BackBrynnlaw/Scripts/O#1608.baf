@@ -1,0 +1,11 @@
+// Brynnlaw's brothel, dungeon corridor
+IF
+Global("O#BrynnQuestSpawn1608","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+SetGlobal("O#BrynnQuestSpawn1608","GLOBAL",1)
+END
+
+
+

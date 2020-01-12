@@ -1,0 +1,19 @@
+// Caiya's house
+IF
+Global("O#BrynnQuestSpawn1606","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#Slava",[426.315],13)
+SetGlobal("O#BrynnQuestSpawn1606","GLOBAL",1)
+Continue()
+END
+
+IF
+Global("O#BrynnGalvena","GLOBAL",2)
+Global("O#BrynnQuestSpawn1606","GLOBAL",1)
+THEN
+RESPONSE #100
+CreateCreature("O#Yasen",[490.276],14)
+SetGlobal("O#BrynnQuestSpawn1606","GLOBAL",2)
+END

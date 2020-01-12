@@ -1,0 +1,12 @@
+// Brynnlaw's Shop
+IF
+Global("O#BrynnQuestSpawn1603","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#BrynT",[540.380],0)
+CreateCreature("O#Sion",[349.448],14)
+CreateCreature("O#Ketta",[316.488],12)
+SetGlobal("O#BrynnQuestSpawn1603","GLOBAL",1)
+END
+

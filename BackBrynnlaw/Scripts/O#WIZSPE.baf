@@ -1,0 +1,16 @@
+IF
+Global("O#WIZSPESpeaks","GLOBAL",0)
+OR(6)
+Range(Player1,20)
+Range(Player2,20)
+Range(Player3,20)
+Range(Player4,20)
+Range(Player5,20)
+Range(Player6,20)
+InMyArea(Player1)
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+!StateCheck(Myself,CD_STATE_NOTVALID)
+THEN
+RESPONSE #100
+StartDialogueNoSet(Player1)
+END

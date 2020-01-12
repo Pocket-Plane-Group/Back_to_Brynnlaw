@@ -1,0 +1,28 @@
+IF
+Global("O#BrynnWardGave","LOCALS",0)
+THEN
+RESPONSE #100
+GiveItemCreate("O#BRWARD","O#WIZSLA",1,0,0)
+GiveItemCreate("scrl9g","O#WIZSLA",1,0,0)
+GiveItemCreate("scrl8j","O#WIZSL2",1,0,0)
+SetGlobal("O#BrynnWardGave","LOCALS",1)
+END
+
+IF
+OR(6)
+Range(Player1,30)
+Range(Player2,30)
+Range(Player3,30)
+Range(Player4,30)
+Range(Player5,30)
+Range(Player6,30)
+Global("init1","LOCALS",0)
+THEN
+RESPONSE #100
+DisplayStringHead(Myself,@10058)
+SetGlobal("init1","LOCALS",1)
+ActionOverride("O#WIZSL1",Enemy())
+ActionOverride("O#WIZSL2",Enemy())
+Enemy()
+ChangeAIScript("O#BRCOW2",OVERRIDE)
+END

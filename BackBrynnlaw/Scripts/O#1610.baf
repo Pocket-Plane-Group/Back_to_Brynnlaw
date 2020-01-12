@@ -1,0 +1,15 @@
+// Brynnlaw's brothel, dungeon
+IF
+Global("O#BrynnQuestSpawn1610","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#YASEN",[664.239],1)
+CreateCreature("O#GALV1",[311.501],14)
+CreateCreature("O#GALV2",[528.422],2)
+CreateCreature("O#GALVEN",[373.474],14)
+SetGlobal("O#BrynnQuestSpawn1610","GLOBAL",1)
+END
+
+
+

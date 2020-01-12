@@ -1,0 +1,25 @@
+IF
+Detect([PC])
+Global("O#BrynnlawMiniquestAmbient1","GLOBAL",0)
+!Allegiance(Myself,ENEMY)
+!Dead("O#BrynT1")
+THEN
+RESPONSE #100
+DialogInterrupt(FALSE)
+DisplayStringHead("O#BrynT1",@10067)
+Wait(3)
+DisplayStringHead(Myself,@10068)
+Wait(3)
+DisplayStringHead("O#BrynT1",@10069)
+Wait(1)
+MoveToObject("O#BrynT1")
+DialogInterrupt(TRUE)
+Kill("O#BrynT1")
+DialogInterrupt(FALSE)
+Wait(1)
+DisplayStringHead(Myself,@10070)
+Wait(2)
+SetGlobal("O#BrynnlawMiniquestAmbient1","GLOBAL",1)
+DialogInterrupt(TRUE)
+EscapeArea()
+END

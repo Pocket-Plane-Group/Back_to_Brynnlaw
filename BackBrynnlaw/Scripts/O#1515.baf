@@ -1,0 +1,21 @@
+// Spellhold interior
+IF
+Global("O#BrynnQuestSpawn1515","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#BERLIN",[1362.1096],14)
+CreateCreature("O#WIZSP3",[1193.1082],14)
+CreateCreature("O#WIZSP4",[1240.1023],14)
+CreateCreature("O#WIZSP5",[1280.1063],14)
+CreateCreature("O#Ghost",[564.306],10)
+CreateCreature("O#WIZGO1",[982.1255],2)
+CreateCreature("O#WIZGO2",[585.1133],14)
+GiveItemCreate("scrl9h","O#WIZSP3",1,0,0)
+GiveItemCreate("scrl9y","O#WIZSP3",1,0,0)
+GiveItemCreate("scrl9d","O#WIZSP5",1,0,0)
+SetGlobal("O#BrynnQuest","GLOBAL",19)
+SetGlobal("O#BrynnQuestSpawn1515","GLOBAL",1)
+END
+
+

@@ -1,0 +1,15 @@
+// The Docks
+IF
+GlobalGT("O#BrynnQuest","GLOBAL",4)
+GlobalLT("O#BrynnQuest","GLOBAL",10)
+Global("O#BrynnQuestAmbushDocks","GLOBAL",0)
+THEN
+RESPONSE #100
+CreateCreature("O#WIZATH",[2400.416],0)
+CreateCreature("O#WIZAT1",[2440.425],0)
+CreateCreature("O#WIZAT2",[2370.401],0)
+GiveItemCreate("scrl8p","O#WIZATH",1,0,0)
+GiveItemCreate("scrl9j","O#WIZAT1",1,0,0)
+SetGlobal("O#BrynnQuestAmbushDocks","GLOBAL",1)
+Continue()
+END

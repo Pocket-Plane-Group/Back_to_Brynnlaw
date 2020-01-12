@@ -1,0 +1,8 @@
+IF
+AttackedBy([GOODCUTOFF],DEFAULT)
+Global("O#BrynnQuestAttacked","LOCALS",0)
+THEN
+RESPONSE #100
+SetGlobal("O#BrynnQuestAttacked","LOCALS",1)
+ApplySpell(Myself,DRYAD_TELEPORT)
+END

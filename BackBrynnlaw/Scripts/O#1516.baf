@@ -1,0 +1,47 @@
+// Spellhold basement
+IF
+Global("O#BrynnQuestExplore1516","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+SetGlobal("O#BrynnQuestExplore1516","GLOBAL",1)
+END
+
+IF
+Global("O#BrynnQuestSpawn1516","GLOBAL",0)
+Dead("O#BERLIN")
+THEN
+RESPONSE #100
+CreateCreature("O#ROSLIN",[924.1078],12)
+CreateCreature("O#BERLI1",[959.1047],1)
+CreateCreature("O#DORA",[1084.1006],2)
+GiveItemCreate("O#BRBrac","O#Berli1",1,0,0)
+GiveItemCreate("O#BRIoun","O#Berli1",1,0,0)
+GiveItemCreate("scrl9r","O#Berli1",1,0,0)
+GiveItemCreate("scrl9z","O#Berli1",1,0,0)
+SetGlobal("O#RoslinSpeaks","GLOBAL",10)
+SetGlobal("O#DoraSpeaks","GLOBAL",10)
+SetGlobal("O#BrynnQuest","GLOBAL",21)
+SetGlobal("O#BrynnQuestSpawn1516","GLOBAL",1)
+END
+
+IF
+Global("O#BrynnQuest","GLOBAL",24)
+Dead("O#Berli1")
+Dead("O#BrImp1")
+Dead("O#BrImp2")
+Dead("O#BrImp3")
+Dead("O#BrImp4")
+Dead("O#BrEle1")
+Dead("O#BrEle2")
+Dead("O#BrEle3")
+Dead("O#BrEle4")
+Dead("O#BrSal1")
+Dead("O#BrSal2")
+!StateCheck(Player1,CD_STATE_NOTVALID) 
+THEN
+RESPONSE #100
+CreateCreatureObjectDoor("O#Roslin",Player1,0,0,0)
+CreateCreatureObjectDoor("O#Dora",Player1,0,0,0)
+SetGlobal("O#BrynnQuest","GLOBAL",25)
+END

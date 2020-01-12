@@ -1,0 +1,9 @@
+// Bridge District: outside the Five Flagons
+IF
+Global("O#BrynnQuest","GLOBAL",5)
+THEN
+RESPONSE #100
+CreateCreature("O#JEREMY",[3222.2187],7)
+SetGlobal("O#BrynnQuest","GLOBAL",6)
+Continue()
+END

@@ -1,0 +1,11 @@
+// Athkatla: the Promenade, outside the Adventurer's Mart
+IF
+Global("Chapter","GLOBAL",%bg2_chapter_6%)
+Global("O#BrynnQuest","GLOBAL",0)
+THEN
+RESPONSE #100
+Explore()
+CreateCreature("O#MYST",[2225.1712],13)
+SetGlobal("O#BrynnQuest","GLOBAL",1)
+Continue()
+END
