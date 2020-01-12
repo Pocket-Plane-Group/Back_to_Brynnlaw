@@ -204,6 +204,7 @@ WeiDU					http://www.weidu.org
 
 Version 8
 -updated backbrynnlaw.ini with the GitHub address for download
+-added folder libiconv-1.9.2-1-src.zip with iconv licence info
 
 Version 7
 - EET compatibility
