@@ -58,6 +58,7 @@ LANGUAGE ~English~ ~English~ ~BackBrynnlaw/English/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Russian~ ~Russian~ ~BackBrynnlaw/Russian/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Deutsch~ ~Deutsch~ ~BackBrynnlaw/Deutsch/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Chinese~ ~Schinese~ ~BackBrynnlaw/Schinese/Setup-BackBrynnlaw.tra~
+LANGUAGE ~Polski http://athkatla.cob-bg.pl/viewtopic.php?t=6760~ ~Polski~ ~BackBrynnlaw/Polish/Setup-BackBrynnlaw.tra~
 
 BEGIN @0
 
