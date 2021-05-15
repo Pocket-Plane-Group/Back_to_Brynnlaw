@@ -1,0 +1,22 @@
+@50 = ~Ces bracelets ont été créés pour les mages de guerre qui ont peu de moyens de se défendre. Les rumeurs disent que l'enchantement a été tissé pour que le porteur puisse utiliser les minuscules météores de Melf plus souvent sans se reposer.
+
+PARAMETRES :
+
+Classe d'Armure : 3
+Accorde trois sorts de niveau 3 supplémentaires
+Maximum de points de vie : +10
+Poids : 2~
+@52 = ~Incroyablement rare et précieuse, cette pierre ionique augmente la vitesse du manieur et lui confère un enchantement puissant supplémentaire.
+
+PARAMETRES :
+
+Augmente la vitesse de déplacement comme les Bottes de Rapidité
+Accorde un sorts de niveau 8 supplémentaire
+Poids : 2~
+@56 = ~La rumeur veut que le légendaire Pacha Basadoni ait été le premier propriétaire de ses gants, et les ait ensuite prêtés à son jeune lieutenant, Artemis Entreri. Ils ont changé de mains à de nombreuses reprises, mais cela ne les rend pas moins mortels.
+
+PARAMETRES :
+
+Dégâts : +2
+TAC0 +2 avec la main secondaire
+Poids : 2~

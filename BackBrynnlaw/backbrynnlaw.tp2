@@ -1,6 +1,6 @@
 BACKUP ~BackBrynnlaw/Backup~
 AUTHOR ~http://forums.pocketplane.net~
-VERSION ~v8~ 
+VERSION ~v9~ 
 
 README ~BackBrynnlaw/%LANGUAGE%/Readme-BackBrynnlaw.txt~ ~BackBrynnlaw/Readme-BackBrynnlaw.txt~ 
 
@@ -58,6 +58,8 @@ LANGUAGE ~English~ ~English~ ~BackBrynnlaw/English/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Russian~ ~Russian~ ~BackBrynnlaw/Russian/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Deutsch~ ~Deutsch~ ~BackBrynnlaw/Deutsch/Setup-BackBrynnlaw.tra~
 LANGUAGE ~Chinese~ ~Schinese~ ~BackBrynnlaw/Schinese/Setup-BackBrynnlaw.tra~
+LANGUAGE ~French~ ~French~ ~BackBrynnlaw/French/Setup-BackBrynnlaw.tra~
+LANGUAGE ~Polish~ ~Polish~ ~BackBrynnlaw/Polish/Setup-BackBrynnlaw.tra~
 
 BEGIN @0
 

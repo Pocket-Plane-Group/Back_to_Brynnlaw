@@ -1,5 +1,5 @@
   		     Back to Brynnlaw MOD for Baldur's Gate II
-				   Version 8
+				   Version 9
 			  A Pocket Plane Group Project
 			   http://www.pocketplane.net
 
@@ -184,6 +184,10 @@ Russian translation by Kulyok.
 
 German translation by Dachrisma.
 
+French translation by deratiseur
+
+Polish translation by Stars of Mystra
+
 Huge thanks to Lava Del'Vortel for the provided bams for the new items.
 
 Testing: Ishad Nha.
@@ -201,6 +205,10 @@ WeiDU					http://www.weidu.org
 -------------------
 6. Version History
 -------------------
+
+Version 9
+-French version added, by deratiseur
+-Polish version added, by Stars of Mystra
 
 Version 8
 -updated backbrynnlaw.ini with the GitHub address for download
