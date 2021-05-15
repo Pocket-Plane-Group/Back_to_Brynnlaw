@@ -186,7 +186,7 @@ German translation by Dachrisma.
 
 French translation by deratiseur
 
-Polish translation by Stars of Mystra
+Polish translation by morgan, Aristo, Cahir, Christoff, Kirara, L'f, memory, Noemi (Stars of Mystra Forum)
 
 Huge thanks to Lava Del'Vortel for the provided bams for the new items.
 
@@ -208,7 +208,7 @@ WeiDU					http://www.weidu.org
 
 Version 9
 -French version added, by deratiseur
--Polish version added, by Stars of Mystra
+-Polish version added, by morgan, Aristo, Cahir, Christoff, Kirara, L'f, memory, Noemi (Stars of Mystra Forum)
 
 Version 8
 -updated backbrynnlaw.ini with the GitHub address for download
